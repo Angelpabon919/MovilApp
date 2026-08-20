@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_background"
+    tools:context=".MainActivity">
+
+    <!-- 1. ENCABEZADO: Información y selección del paciente -->
+    <LinearLayout
+        android:id="@+id/layout_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@color/white"
+        android:elevation="4dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/tv_avatar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/shape_circle_avatar"
+            android:gravity="center"
+            android:text="JG"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PACIENTE ACTIVO"
+                android:textColor="@color/text_muted"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spinner_pacientes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btn_notificaciones"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Notificaciones"
+            android:src="@android:drawable/ic_popup_reminder"
+            app:tint="@color/color_primary" />
+    </LinearLayout>
+
+    <!-- 2. PESTAÑAS: TabLayout para cambiar entre secciones -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_header"
+        android:background="@color/white"
+        app:tabIndicatorColor="@color/color_primary"
+        app:tabMode="scrollable"
+        app:tabSelectedTextColor="@color/color_primary"
+        app:tabTextColor="@color/text_muted" />
+
+    <!-- 3. CONTENEDOR CENTRAL: ViewPager2 donde se cargan las vistas -->
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/layout_bottom_actions"
+        android:layout_below="@id/tab_layout" />
+
+    <!-- 4. BOTONES INFERIORES: Acciones rápidas del cuidador -->
+    <LinearLayout
+        android:id="@+id/layout_bottom_actions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:elevation="8dp"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_confirmar_med"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/color_primary"
+            android:text="Confirmar\nMedicamento"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            app:cornerRadius="8dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_reportar_insumo"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/color_surface"
+            android:text="Reportar\nInsumos"
+            android:textColor="@color/text_dark"
+            android:textSize="11sp"
+            app:cornerRadius="8dp"
+            app:strokeColor="@color/color_secondary" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_bitacora"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/color_accent_beige"
+            android:text="Bitácora /\nNovedades"
+            android:textColor="@color/text_dark"
+            android:textSize="11sp"
+            app:cornerRadius="8dp"
+            app:strokeColor="@color/text_muted" />
+    </LinearLayout>
+
+</RelativeLayout>
