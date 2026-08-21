@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_background"
+    android:padding="24dp"
+    tools:context=".LoginActivity">
+
+    <!-- TÍTULO -->
+
+    <TextView
+        android:id="@+id/tvTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GeriApp"
+        android:textColor="@color/color_primary"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="140dp" />
+
+    <!-- CORREO -->
+
+    <EditText
+        android:id="@+id/etCorreo"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/bg_edittext"
+        android:hint="Correo electrónico"
+        android:inputType="textEmailAddress"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:textColor="@color/text_dark"
+        android:textColorHint="@color/text_muted"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitulo" />
+
+    <!-- CONTRASEÑA -->
+
+    <EditText
+        android:id="@+id/etContrasena"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_edittext"
+        android:hint="Contraseña"
+        android:inputType="textPassword"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:textColor="@color/text_dark"
+        android:textColorHint="@color/text_muted"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etCorreo" />
+
+    <!-- BOTÓN -->
+
+    <Button
+        android:id="@+id/btnIniciarSesion"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/color_primary"
+        android:text="INICIAR SESIÓN"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etContrasena" />
+
+    <!-- REGISTRO -->
+
+    <TextView
+        android:id="@+id/tvRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="¿No tienes una cuenta? Regístrate"
+        android:textColor="@color/text_muted"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnIniciarSesion" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
