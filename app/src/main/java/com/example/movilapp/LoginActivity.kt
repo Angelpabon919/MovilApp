@@ -30,13 +30,23 @@ class LoginActivity : AppCompatActivity() {
             )
             insets
         }
+        binding.tvRegistro.setOnClickListener {
+            val intent = Intent (this, RegisterActivity:: class.java)
+            startActivity(intent)
+        }
+
         binding.btnIniciarSesion.setOnClickListener {
-            val correo = binding.etCorreo.text.toString()
+            val correo = binding.etCorreo.text.toString().trim()
             val contraseña = binding.etContrasena.text.toString()
+            val preferencias = getSharedPreferences("usuario",
+            MODE_PRIVATE)
+            val correoguardado = preferencias.getString("correo", "")
+            val passwordGuardado = preferencias.getString("password", "")
+
 
             if (correo.isEmpty() || contraseña.isEmpty()) {
                 Toast.makeText(this, "Completa los Campos", Toast.LENGTH_SHORT).show()
-            } else if (correo == "admin@gmail.com" && contraseña == "1234") {
+            } else if (correo == correoguardado && contraseña == passwordGuardado) {
                 Toast.makeText(this, "Inicio Sesion Correctamente", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
